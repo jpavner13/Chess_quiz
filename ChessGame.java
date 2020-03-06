@@ -103,17 +103,25 @@ public class ChessGame{
                         (rank + i == square2.getRank() && file - i == square2.getFile())||
                         (rank - i == square2.getRank() && file + i == square2.getFile())){
                         square2.toggleHighlighted();
-                        queenInfluence++;
+                        if(!square2.getColor().equals("H")){
+                            queenInfluence++;
+                        }    
                     }
                 }
             }
             for(int i = 1; i < 9; i++){ 
+                Square square2 = board.getSquare(rank, i);
                 Board.getSquare(rank, i).toggleHighlighted(); 
-                queenInfluence++;
+                if(!square2.getColor().equals("H")){
+                    queenInfluence++;
+                }    
             }
             for(int i = 1; i < 9; i++){ 
+                Square square2 = board.getSquare(i, file);
                 Board.getSquare(i, file).toggleHighlighted(); 
-                queenInfluence++;
+                if(!square2.getColor().equals("H")){
+                    queenInfluence++;
+                }    
             }
         }
 
