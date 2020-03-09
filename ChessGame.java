@@ -8,7 +8,7 @@ public class ChessGame{
 
     public static void main(String[] args){
         ChessGame game = new ChessGame();
-        //placeRook(board.getSquare(4, 6));
+        //placeRook(board.getSquare(4, 4));
         //placeKnight(board.getSquare(4, 4));
         //placeBishup(board.getSquare(4, 4));
         placeQueen(board.getSquare(4, 4));
@@ -102,25 +102,25 @@ public class ChessGame{
                         (rank - i == square2.getRank() && file - i == square2.getFile())||
                         (rank + i == square2.getRank() && file - i == square2.getFile())||
                         (rank - i == square2.getRank() && file + i == square2.getFile())){
-                        square2.toggleHighlighted();
-                        if(!square2.getColor().equals("H")){
+                        if(square2.getColor().equals("B")||square2.getColor().equals("W")){
                             queenInfluence++;
+                            square2.toggleHighlighted();
                         }    
                     }
                 }
             }
             for(int i = 1; i < 9; i++){ 
                 Square square2 = board.getSquare(rank, i);
-                Board.getSquare(rank, i).toggleHighlighted(); 
-                if(!square2.getColor().equals("H")){
+                if(square2.getColor().equals("B")||square2.getColor().equals("W")){
                     queenInfluence++;
+                    Board.getSquare(rank, i).toggleHighlighted(); 
                 }    
             }
             for(int i = 1; i < 9; i++){ 
                 Square square2 = board.getSquare(i, file);
-                Board.getSquare(i, file).toggleHighlighted(); 
-                if(!square2.getColor().equals("H")){
+                if(square2.getColor().equals("B")||square2.getColor().equals("W")){
                     queenInfluence++;
+                    Board.getSquare(i, file).toggleHighlighted(); 
                 }    
             }
         }
